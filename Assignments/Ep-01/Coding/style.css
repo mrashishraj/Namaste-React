@@ -5,3 +5,5 @@ h1{
 h2{
     color: blue;
 }
+
+{{catalog['catalog_4'][event['custom']['Order created']['custom']['variantIds']]['product_page_link']}}
