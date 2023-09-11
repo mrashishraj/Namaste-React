@@ -1,7 +1,20 @@
-h1{
+/* h1{
     color: red;
 }
 
 h2{
     color: blue;
+} */
+
+.blue{
+    color: blue;
 }
+
+.pink{
+    color: pink;
+}
+
+.green{
+    color: green;
+}
+.red{color: red;}
