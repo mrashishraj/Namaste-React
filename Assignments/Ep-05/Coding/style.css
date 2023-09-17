@@ -1,0 +1,45 @@
+.navContainer{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid grey;
+    box-shadow: 3px 3px gray;
+}
+
+.logoImage{
+    width: 100px;
+}
+
+.navBtn>ul{
+    display: flex;
+    flex-direction: row;
+    float: right;
+    list-style-type: none;
+}
+
+.navBtn > ul > li{
+    padding: 10px;
+    margin: 10px;
+
+}
+
+.resCardContainer{
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid gray;
+    box-shadow: 3px 3px gray;
+    width: 200px;
+    height: auto;
+    overflow-wrap: break-word;
+}
+
+.resImg{
+    width: 200px;
+}
+
+.resCard{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
