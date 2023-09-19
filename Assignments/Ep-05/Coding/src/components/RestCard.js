@@ -4,7 +4,7 @@ import { RES_IMG_URL } from "../utils/constants";
 const ResCard = (props) =>{
     const {name,avgRating,cloudinaryImageId,areaName,costForTwo,sla} = props?.restroData
     // console.log(props);
-    console.log(props.restroData);
+    // console.log(props.restroData);
 
     return(
         <div className="resCardContainer">
