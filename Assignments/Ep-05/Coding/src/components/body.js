@@ -2,6 +2,7 @@ import ResCard from "./RestCard"
 import { resData } from "../utils/mockData"
 import {useState,useEffect} from "react"
 import Shimmer from "./shimmer"
+import { Link } from "react-router-dom"
 
 const Body = () =>{
 const [restroData, setRestroData] = useState()
@@ -32,7 +33,6 @@ const handleSearch =(e) =>{
         setRestroData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestroData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
-    
 
     return !filteredRestroData ? (<Shimmer/>) :(
         <div className="bodyContainer">
@@ -44,7 +44,7 @@ const handleSearch =(e) =>{
                 <button onClick={()=>{const filteredRes = restroData.filter(item=>item.info.avgRating>4); setRestroData(filteredRes) }}>Top Rated Restro</button>
             </div>
             <div className="resCard">
-                {filteredRestroData?.map(restro=>(<ResCard key={restro.info.id} restroData={restro.info}/>))}                
+                {filteredRestroData?.map(restro=>(<Link to={"/restaurent/"+restro.info.id}><ResCard key={restro.info.id} restroData={restro.info}/></Link> ))}                
             </div>
         </div>
     )
