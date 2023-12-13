@@ -2,6 +2,8 @@ import ResCard from "./RestCard"
 import { resData } from "../utils/mockData"
 import {useState,useEffect} from "react"
 import Shimmer from "./shimmer"
+import { Link } from "react-router-dom"
+import { RES_LIST } from "../utils/constants"
 
 const Body = () =>{
 const [restroData, setRestroData] = useState()
@@ -27,12 +29,11 @@ const handleSearch =(e) =>{
     },[])
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4039214&lng=77.037736&page_type=DESKTOP_WEB_LISTING")
+        const data = await fetch("RES_LIST")
         const json = await data.json()
         setRestroData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestroData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
-    
 
     return !filteredRestroData ? (<Shimmer/>) :(
         <div className="bodyContainer">
@@ -44,7 +45,7 @@ const handleSearch =(e) =>{
                 <button onClick={()=>{const filteredRes = restroData.filter(item=>item.info.avgRating>4); setRestroData(filteredRes) }}>Top Rated Restro</button>
             </div>
             <div className="resCard">
-                {filteredRestroData?.map(restro=>(<ResCard key={restro.info.id} restroData={restro.info}/>))}                
+                {filteredRestroData?.map(restro=>(<Link to={"/restaurent/"+restro.info.id}><ResCard key={restro.info.id} restroData={restro.info}/></Link> ))}                
             </div>
         </div>
     )
