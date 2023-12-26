@@ -1,5 +1,4 @@
 import ResCard from "./RestCard"
-import { resData } from "../utils/mockData"
 import {useState,useEffect} from "react"
 import Shimmer from "./shimmer"
 import { Link } from "react-router-dom"
@@ -29,7 +28,7 @@ const handleSearch =(e) =>{
     },[])
 
     const fetchData = async () => {
-        const data = await fetch("RES_LIST")
+        const data = await fetch(RES_LIST)
         const json = await data.json()
         setRestroData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestroData(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
