@@ -7,29 +7,41 @@ const ResCard = (props) =>{
     // console.log(props.restroData);
 
     return(
-        <div className="resCardContainer">
+        <div className="p-4 w-52 h-auto m-4 bg-gray-200 shadow-md rounded-md ">
             <div>
-                <img className="resImg" src={RES_IMG_URL+cloudinaryImageId} alt="" />
+                <img className="w-40 h-32 ml-2 shadow-md rounded-md" src={RES_IMG_URL+cloudinaryImageId} alt="" />
             </div>
-            <div className="resName">
+            <div className="h-5 w-4/8 m-2  font-medium">
                <h3>{name}</h3> 
             </div>
-            <div className="areaName">
+            <div className="h-5 w-4/8 m-2 font-medium ">
                 <h4>{areaName}</h4>
             </div>
-            <div className="costForTwo">
+            <div className="h-5 w-4/8 m-2 font-medium ">
                 <h4>{costForTwo}</h4>
             </div>
-            <div className="rating">
+            <div className="h-5 w-4/8 m-2 font-medium ">
             <h3>{avgRating}</h3>
             </div>
-            <div className="eta">
+            <div className="h-5 w-4/8 m-2 font-medium ">
                 <h4>
                     {sla.slaString}
                 </h4>
             </div>
         </div>
     )
+}
+
+
+export const PromotedRestaurantCard = (ResCard) => {
+    return(props)=>{
+        return(
+            <>
+                <label htmlFor="#">Promoted</label>
+                <ResCard {...props}/>
+            </>
+        )
+    }
 }
 
 export default ResCard

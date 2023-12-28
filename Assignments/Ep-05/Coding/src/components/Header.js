@@ -11,18 +11,18 @@ const Header = () =>{
 
     
     return(
-        <div className="navContainer">
+        <div className="flex justify-between shadow-lg">
             <div className="logoBox">
-                <img className="logoImage" src={LOGO_URL} alt="logo" />
+                <img className="w-24" src={LOGO_URL} alt="logo" />
             </div>
-            <div className="navBtn">
-                <ul>
-                    <li>Online Status : {onlineStatus?"✅":"⛔️"} </li>
-                    <li><Link to="/"> Home</Link></li>
-                    <li><Link to="about"> About</Link></li>
-                    <li><Link to="contact">Contect Us</Link> </li>
-                    <li>Cart</li>
-                    <li> <button onClick={handleClick=>{btnName==="login"? setBtnName("logout"):setBtnName("login")}}>{btnName}</button> </li>
+            <div className="flex items-center">
+                <ul className="flex p-4 m-4">
+                    <li className="p-2 m-3 shadow-md rounded-md bg-blue-100">Online Status : {onlineStatus?"✅":"⛔️"} </li>
+                    <li className="p-2 m-3 shadow-md rounded-md bg-blue-100"><Link to="/"> Home</Link></li>
+                    <li className="p-2 m-3 shadow-md rounded-md bg-blue-100"><Link to="about"> About</Link></li>
+                    <li className="p-2 m-3 shadow-md rounded-md bg-blue-100"><Link to="contact">Contect Us</Link> </li>
+                    <li className="p-2 m-3 shadow-md rounded-md bg-blue-100">Cart</li>
+                    <li className="p-2 m-3 shadow-md rounded-md bg-blue-100"> <button onClick={handleClick=>{btnName==="login"? setBtnName("logout"):setBtnName("login")}}>{btnName}</button> </li>
                 </ul>
             </div>
         </div>

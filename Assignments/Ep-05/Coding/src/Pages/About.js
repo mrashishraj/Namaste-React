@@ -1,5 +1,5 @@
-import UserClass from "../components/userClass"
-import UserFunction from "../components/userFunction"
+import UserClass from "../components/UserClass"
+import UserFunction from "../components/UserFunction"
 
 const About = ()=>{
     return(
