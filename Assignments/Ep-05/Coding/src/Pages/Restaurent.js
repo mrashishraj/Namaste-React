@@ -9,8 +9,11 @@ import RestaurantCategory  from "../components/RestaurantCategory"
 const Restaurant = ()=>{
     const [restData, setResData] = useState(null)   
     const [resInfo, setResInfo] = useState()
+    const [showIndex, setShowIndex] = useState(null)
+
     const params = useParams()
     const {resId} = params
+
     useEffect(()=>{
         fetchData()
     },[])
@@ -34,13 +37,19 @@ const Restaurant = ()=>{
         <>
             <div className="text-center">
                 <div cla>
-                    <h1 className="font-bold mt-6 text-2xl">{name}</h1>
+                    <h1 className="font-bold text-2xl mt-6">{name}</h1>
                     <h2 className="mb-2">{areaName}</h2>
                 </div>
                 {/* <h2>{avgRating}</h2>
                 <h3>{costForTwoMessage}</h3>
                 <h3>{cuisines.map(data=><li>{data}</li>)}</h3> */}
-                {ResCategory.map(data=>(<RestaurantCategory data={data}/>))}
+                {ResCategory.map((data,index)=>(
+                <RestaurantCategory 
+                data={data}
+                key={index}
+                showItems={index==showIndex}
+                setShowIndex={index==showIndex?(()=>setShowIndex(null)):(()=>setShowIndex(index))}
+                />))}
             </div>
         </>
     )

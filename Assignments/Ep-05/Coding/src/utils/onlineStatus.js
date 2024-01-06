@@ -14,7 +14,7 @@ const useOnlineStatus = () =>{
 
     useEffect(()=>{
         window.addEventListener("online",()=>{
-            setOnline(true)
+            setOnline( )
         })
     },[])
 

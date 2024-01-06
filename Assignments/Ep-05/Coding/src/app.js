@@ -6,14 +6,18 @@ import {createBrowserRouter,RouterProvider,Outlet} from "react-router-dom"
 import About from "./Pages/About.js"
 import Contact from "./Pages/Contact.js"
 import Error from "./Pages/Error.js"
-// import Restaurant from "./Pages/Restaurent.js";
+import { Provider } from "react-redux";
+import store from "./utils/appStore.js";
+import Cart from "./Pages/Cart.js";
 
 const App = ()=>{
 return(
-    <div>
-        <Header/>
-        <Outlet/>
-    </div>
+    <Provider store={store}>
+        <div>
+            <Header/>
+            <Outlet/>
+        </div>
+    </Provider>
 )
 }
 
@@ -41,6 +45,10 @@ const appRouter = createBrowserRouter([
                 element: <Suspense fallback="Loading...">
                     <Restaurant/>
                     </Suspense> 
+            },
+            {
+                path:"/cart",
+                element:<Cart/>
             }
         ],
         errorElement:<Error/>
